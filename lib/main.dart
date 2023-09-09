@@ -31,9 +31,10 @@ void main() {
 
 runApp(
     BlocProvider(
-      create: (context) => ProductBloc(http.Client(), ), // Provide the ProductBloc
+      create: (context) => ProductBloc(http.Client()), // Provide the ProductBloc
       child: MaterialApp.router(
         routerConfig: _router,
+        debugShowCheckedModeBanner: false,
         
         
         theme: ThemeData(

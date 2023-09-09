@@ -38,7 +38,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     on<FetchProducts>((event, emit)async {
        await _handleFetchProducts(event, emit);
       // Handle the FetchProducts event here
-      _handleFetchProducts(event, emit);
+      
     });
   }
 

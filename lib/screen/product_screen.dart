@@ -22,23 +22,31 @@ class ProductListScreen extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           } else if (state is ProductLoaded) {
             final products = state.products;
+           //var imageUrl =products.im
             print(products.length);
 
             return ListView.builder(
               itemCount: products.length,
               itemBuilder: (context, index) {
                 final product = products[index];
-                return ListTile(
-                  title: Text(product.title),
-                  subtitle: Text('\$${product.price.toStringAsFixed(2)}'),
-                  onTap: () {
-                    // Navigate to the product detail screen
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => ProductDetailScreen(product),
-                      ),
-                    );
-                  },
+                return Card(
+                  margin: EdgeInsets.all(8.0),
+                  child: ListTile(
+                    leading: Image.network(
+                  product.image,
+                  height: 200,
+                              ),
+                    title: Text(product.title),
+                    subtitle: Text('\$${product.price.toStringAsFixed(2)}'),
+                    onTap: () {
+                      // Navigate to the product detail screen
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ProductDetailScreen(product),
+                        ),
+                      );
+                    },
+                  ),
                 );
               },
             );

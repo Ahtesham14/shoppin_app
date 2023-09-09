@@ -6,7 +6,7 @@ import 'package:shopping_app/models/product_model.dart'; // Add this import for 
 class ProductRepository {
   final String baseUrl = 'https://fakestoreapi.com';
 
-  Future<List<Product>> fetchProducts() async {
+  Future<List<Product>> fetchProducts(String productId) async {
     final response = await http.get(Uri.parse('$baseUrl/products'));
     if (response.statusCode == 200) {
       // Parse JSON response and return a list of Product objects.
