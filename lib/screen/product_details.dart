@@ -51,10 +51,25 @@ class ProductDetailScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            
             SizedBox(height: 8.0),
             Text(
               product.description,
               style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 8.0),
+             Row(
+              children: [
+                Icon(Icons.star, color: Colors.amber),
+                Text(
+                  product.rating.rate.toStringAsFixed(1),
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                Text(
+                  ' (${product.rating.count} ratings)',
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ],
             ),
           ],
         ),
